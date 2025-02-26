@@ -66,8 +66,7 @@ else:
             return 50 + 2.3 * (height_in - 60)
         else:
             return 45.5 + 2.3 * (height_in - 60)
-
-    st.header("Ideal Body Weight (IBW) Calculation")
+            
     ibw = calculate_ibw(height, gender)
     st.write(f"**Ideal Body Weight (IBW):** {ibw:.2f} kg (Devine Equation)")
 
