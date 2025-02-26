@@ -634,4 +634,5 @@ if serum_ca and albumin:
 else:
     st.write("Please enter valid values for Serum Calcium and Albumin.")
 
-st.write("This page was created by Leah Newmark, RD, CNSC")
+st.write(f"""***This page was created by Leah Newmark, RD, CNSC***""")
+
