@@ -88,15 +88,14 @@ disease_states = [
     "Pancreatitis", "Renal", "Spinal Cord Injury", 
     "Trauma", "Wound healing"
 ]
-
+st.header(f"Disease State Nutrition Needs Calculation")
 # Streamlit dropdown (selectbox)
 selected_disease = st.selectbox("Select Disease State", disease_states)
 
 # Conditional logic for each disease state
 if selected_disease == "ARDS (Acute Lung Injury)/ Ventilated":
     # --- Energy Needs Calculation ---
-
-    st.header(f"Energy Needs Calculation")
+    st.subheader("ARDS (Acute Lung Injury)/ Ventilated Nutrient Needs")
     if bmi < 30:
         # Non-obese patient: Use Penn State Equation
         st.subheader(f"Non-Obese Patient - Penn State Equation")
