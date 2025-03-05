@@ -417,8 +417,8 @@ elif selected_disease == "Pancreatitis":
     -  {energy:.0f} kcal/day (25 kcal/kg)""")
 
     # Protein Needs
-    st.write(f"**Protein Needs:** 
-    - {protein:.1f} g/day (1.5 g/kg)")
+    st.write(f"""**Protein Needs:** 
+    - {protein:.1f} g/day (1.5 g/kg)""")
 
     # Feeding Recommendations
     st.write("""
