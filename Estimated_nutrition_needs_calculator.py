@@ -413,8 +413,8 @@ elif selected_disease == "Pancreatitis":
     st.subheader("Pancreatitis Nutrition Recommendations")
 
     # Energy Needs
-    st.write(f"**Energy Needs:** 
-    -  {energy:.0f} kcal/day (25 kcal/kg)")
+    st.write(f"""**Energy Needs:** 
+    -  {energy:.0f} kcal/day (25 kcal/kg)""")
 
     # Protein Needs
     st.write(f"**Protein Needs:** 
