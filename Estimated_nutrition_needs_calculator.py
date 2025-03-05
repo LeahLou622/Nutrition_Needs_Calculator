@@ -432,8 +432,8 @@ elif selected_disease == "Renal":
     energy_low = 25 * weight  # 25 kcal/kg for ARF
     energy_high = 35 * weight  # 35 kcal/kg for ARF
     st.subheader("Renal Disease (ARF) Nutrition Recommendations")
-    st.write(f"**Energy Needs (ARF):**
-    - {energy_low:.0f} - {energy_high:.0f} kcal/day (25-35 kcal/kg)")
+    st.write(f"""**Energy Needs (ARF):**
+    - {energy_low:.0f} - {energy_high:.0f} kcal/day (25-35 kcal/kg)""")
 
     # Protein needs for different renal conditions
     protein = 0.8 * weight  # Default protein for AKI without dialysis
@@ -485,15 +485,15 @@ elif selected_disease == "Trauma":
         if st.selectbox("Is the patient intubated?", ["Yes", "No"]) == "Yes":
             energy = 20 * weight  # 20-25 kcal/kg for intubated patients
             energy_high = 25 * weight
-            st.write(f"- Energy: Indirect calorimetry (gold standard)
+            st.write(f"""- Energy: Indirect calorimetry (gold standard)
             - The Penn State Equation (PSU) 2003b calculates resting energy expenditure and is supported by Academy of Nutrition and Dietetics (may be calculated using the ADA Nutrition Care Manual) nonobese patients
 Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select ARF from drop down to calculate Penn State for intubated pts
-            - Use clinical judgment: 20-25 kcal/kg (intubated): {energy:.0f} - {energy_high:.0f} kcal/day")
+            - Use clinical judgment: 20-25 kcal/kg (intubated): {energy:.0f} - {energy_high:.0f} kcal/day""")
         else:
             energy = 25 * weight  # 25-35 kcal/kg for non-intubated patients
             energy_high = 35 * weight
-            st.write(f"**Energy Needs (Non-Intubated):**
-            - {energy:.0f} - {energy_high:.0f} kcal/day (25 35 kcal/kg)")
+            st.write(f"""**Energy Needs (Non-Intubated):**
+            - {energy:.0f} - {energy_high:.0f} kcal/day (25 35 kcal/kg)""")
 
     # Protein needs for Trauma
     protein_low = 1.5 * weight
