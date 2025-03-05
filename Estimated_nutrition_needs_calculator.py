@@ -66,7 +66,7 @@ else:
             return 50 + 2.3 * (height_in - 60)
         else:
             return 45.5 + 2.3 * (height_in - 60)
-            
+
     ibw = calculate_ibw(height, gender)
     st.write(f"**Ideal Body Weight (IBW):** {ibw:.2f} kg (Devine Equation)")
 
@@ -164,13 +164,21 @@ elif selected_disease == "Cancer":
         kcal_stressed = 35 * weight
         st.write(f"""
         **Energy Needs (Non-Obese):**  
-        - {kcal_low:.0f} to {kcal_high:.0f} kcal/day for non-ambulatory or sedentary adults  
-        - {kcal_hyper_low:.0f} to {kcal_hyper_high:.0f} kcal/day for hypermetabolic patients, for weight gain, during the first month after HSCT, or for an anabolic patient  
-        - {kcal_stressed:.0f} kcal/day and above for hypermetabolic or severely stressed patients, patients with acute GVHD, during head and neck chemoradiation, or for those with malabsorption  
+        - {kcal_low:.0f} to {kcal_high:.0f} kcal/day for non-ambulatory or sedentary adults (25-30 kcal/kg)  
+        - {kcal_hyper_low:.0f} to {kcal_hyper_high:.0f} kcal/day for hypermetabolic patients, for weight gain, during the first month after HSCT, or for an anabolic patient (30-35 kcal/kg) 
+        - {kcal_stressed:.0f} kcal/day and above for hypermetabolic or severely stressed patients, patients with acute GVHD, during head and neck chemoradiation, or for those with malabsorption (35 kcal/kg) 
         """)
     else:  # Obese
-        st.write("""
+        kcal_low = 25 * weight
+        kcal_high = 30 * weight
+        kcal_hyper_low = 30 * weight
+        kcal_hyper_high = 35 * weight
+        kcal_stressed = 35 * weight
+        st.write(f"""
         **Energy Needs (Obese):**  
+        - {kcal_low:.0f} to {kcal_high:.0f} kcal/day for non-ambulatory or sedentary adults (25-30 kcal/kg)  
+        - {kcal_hyper_low:.0f} to {kcal_hyper_high:.0f} kcal/day for hypermetabolic patients, for weight gain, during the first month after HSCT, or for an anabolic patient (30-35 kcal/kg) 
+        - {kcal_stressed:.0f} kcal/day and above for hypermetabolic or severely stressed patients, patients with acute GVHD, during head and neck chemoradiation, or for those with malabsorption (35 kcal/kg) 
         - Needs are widely variable. Use clinical judgment, especially for the obese patient.  
         """)
 
@@ -186,10 +194,10 @@ elif selected_disease == "Cancer":
 
     st.write(f"""
     **Protein Needs:**  
-    - {protein_low:.1f} to {protein_high:.1f} g/day for non-stressed patient with cancer  
-    - {protein_treatment_low:.1f} to {protein_treatment_high:.1f} g/day for patients undergoing treatment  
-    - {protein_transplant_low:.1f} to {protein_transplant_high:.1f} g/day for stem cell transplant  
-    - {protein_increased_low:.1f} to {protein_increased_high:.1f} g/day for increased protein needs such as protein-losing enteropathies or wasting  
+    - {protein_low:.1f} to {protein_high:.1f} g/day for non-stressed patient with cancer (1 g/kg) 
+    - {protein_treatment_low:.1f} to {protein_treatment_high:.1f} g/day for patients undergoing treatment (1.2 - 1.5 g/kg) 
+    - {protein_transplant_low:.1f} to {protein_transplant_high:.1f} g/day for stem cell transplant (1.5 - 2.0 g/kg)  
+    - {protein_increased_low:.1f} to {protein_increased_high:.1f} g/day for increased protein needs such as protein-losing enteropathies or wasting (1.5 - 2.5 g/kg) 
     """)
 
 elif selected_disease == "Cerebral vascular disease":
@@ -208,7 +216,7 @@ elif selected_disease == "Cerebral vascular disease":
     protein_high = 1.0 * weight
     st.write(f"""
     **Protein Needs:**  
-    - {protein_low:.1f} to {protein_high:.1f} g/day unless modified for a subsequent condition  
+    - {protein_low:.1f} to {protein_high:.1f} g/day unless modified for a subsequent condition (0.8 - 1.0 g/kg) 
     """)
 
     # Fluid Needs
@@ -243,7 +251,7 @@ elif selected_disease == "Diabetes":
         kcal_high = 30 * weight
         st.write(f"""
         **Energy Needs:**  
-        - {kcal_low:.0f} to {kcal_high:.0f} kcal/day for normal weight  
+        - {kcal_low:.0f} to {kcal_high:.0f} kcal/day for normal weight (25 - 30 kcal/kg) 
         """)
         # Carbohydrate Recommendations
         g_carb_low = (kcal_low * 0.4)/4
@@ -271,7 +279,7 @@ elif selected_disease == "Diabetes":
         kcal_needs = 20 * weight
         st.write(f"""
         **Energy Needs:**  
-        - {kcal_needs:.0f} kcal/day for obese or very inactive  
+        - {kcal_needs:.0f} kcal/day for obese or very inactive (20 kcal/kg) 
         """)
         # Carbohydrate Recommendations
         g_carb_low = (kcal_needs * 0.4)/4
@@ -289,8 +297,8 @@ elif selected_disease == "Diabetes":
     protein_repletion_high = 1.5 * weight
     st.write(f"""
     **Protein Needs:**  
-    - {protein_low:.1f} to {protein_high:.1f} g/day for maintenance  
-    - {protein_repletion_low:.1f} to {protein_repletion_high:.1f} g/day for repletion needs  
+    - {protein_low:.1f} to {protein_high:.1f} g/day for maintenance (0.8 - 1.0 g/kg) 
+    - {protein_repletion_low:.1f} to {protein_repletion_high:.1f} g/day for repletion needs (1.0 - 1.5 g/kg) 
     - Advise 15-20% of daily calories from protein  
     """)
 
@@ -310,7 +318,7 @@ elif selected_disease == "Diabetes":
     fluid_high = 35 * weight
     st.write(f"""
     **Fluid Needs:**  
-    - {fluid_low:.0f} to {fluid_high:.0f} ml/day  (25-35 ml/kg)
+    - {fluid_low:.0f} to {fluid_high:.0f} ml/day (25-35 ml/kg)
     """)
 
 elif selected_disease == "Heart failure":
@@ -320,7 +328,7 @@ elif selected_disease == "Heart failure":
     kcal_needs = rmr * activity_factor
     st.write(f"""
     **Energy Needs:**   
-    - Estimated kcal/day: {kcal_needs:.0f} kcal/day (Mifflin-St Jeor or Harris-Benedict formula x activity factor for energy needs) 
+    - Estimated kcal/day: {kcal_needs:.0f} kcal/day (Mifflin-St Jeor x activity factor) 
     """)
 
     # Protein Needs
@@ -386,8 +394,7 @@ elif selected_disease == "Obese (non critical care)":
     # Energy Needs
     st.write(f"""
     **Energy Needs (TDEE):**  
-    - Mifflin-St. Jeor equation to estimate RMR  
-    - Multiplied by an activity factor of {activity_factor} for {activity_level} individuals  
+    - Mifflin-St. Jeor equation multiplied by an activity factor of {activity_factor} for {activity_level} individuals  
     - Total daily energy expenditure (TDEE): {tdee:.0f} kcal/day
     """)
 
@@ -406,10 +413,12 @@ elif selected_disease == "Pancreatitis":
     st.subheader("Pancreatitis Nutrition Recommendations")
 
     # Energy Needs
-    st.write(f"**Energy Needs:** 25 kcal/kg of weight, total energy requirement: {energy:.0f} kcal/day")
+    st.write(f"**Energy Needs:** 
+    -  {energy:.0f} kcal/day (25 kcal/kg)")
 
     # Protein Needs
-    st.write(f"**Protein Needs:** 1.5 g/kg of weight, total protein requirement: {protein:.1f} g/day")
+    st.write(f"**Protein Needs:** 
+    - {protein:.1f} g/day (1.5 g/kg)")
 
     # Feeding Recommendations
     st.write("""
@@ -423,8 +432,8 @@ elif selected_disease == "Renal":
     energy_low = 25 * weight  # 25 kcal/kg for ARF
     energy_high = 35 * weight  # 35 kcal/kg for ARF
     st.subheader("Renal Disease (ARF) Nutrition Recommendations")
-    st.write(f"**Energy Needs (ARF):** 25-35 kcal/kg of weight")
-    st.write(f"Total energy requirement range: {energy_low:.0f} - {energy_high:.0f} kcal/day")
+    st.write(f"**Energy Needs (ARF):**
+    - {energy_low:.0f} - {energy_high:.0f} kcal/day (25-35 kcal/kg)")
 
     # Protein needs for different renal conditions
     protein = 0.8 * weight  # Default protein for AKI without dialysis
@@ -433,21 +442,15 @@ elif selected_disease == "Renal":
 
     # Adjust protein for different conditions
     st.write(f"""**Protein Needs:**  
-    - Renal Replacement Therapy: {weight * 1.2:.0f} g - {weight * 1.5:.0f} g (1.2-1.5 g/kg)
-    - AKI: {weight * 0.8:.0f} g - {weight * 1.0:.0f} g (0.8-1.0 g/kg without dialysis); {weight * 1.2:.0f} g - {weight * 1.5:.0f} g (1.2-1.5 g/kg with initiation of RRT)  
-    - PD/HD: {weight * 1.2:.0f} g - {weight * 1.3:.0f} g (1.2-1.3 g/kg PD), up to {weight * 1.5:.0f} g - {weight * 1.8:.0f} g (1.5-1.8 g/kg HD) 
+    - AKI: {weight * 0.8:.0f} g - {weight * 1.0:.0f} g (0.8 - 1.0 g/kg without dialysis) 
+    - Renal Replacement Therapy: {weight * 1.2:.0f} g - {weight * 1.5:.0f} g (1.2 - 1.5 g/kg) 
+    - PD: {weight * 1.2:.0f} g - {weight * 1.3:.0f} g (1.2 - 1.3 g/kg PD)
+    - HD: up to {weight * 1.5:.0f} g - {weight * 1.8:.0f} g (1.5 - 1.8 g/kg HD) 
     - CRRT: up to {weight * 2.5 :.0f} g (2.5 g/kg)  
 
     **Fluid Recommendations:**  
     - Predialysis, PD, CRRT: as tolerated  
     - HD: 500 ml + urine output, anuric (<75 ml/day): 1-1.2 L/day  
-    """)
-    
-    # Fluid needs
-    st.write("**Fluid Needs:**")
-    st.write("""
-    - **Predialysis, PD, CRRT:** As tolerated
-    - **HD (Hemodialysis):** 500 ml + urine output, if anuric (<75 ml/day) fluid requirement is 1-1.2L/day
     """)
 
 elif selected_disease == "Spinal Cord Injury":
@@ -482,19 +485,21 @@ elif selected_disease == "Trauma":
         if st.selectbox("Is the patient intubated?", ["Yes", "No"]) == "Yes":
             energy = 20 * weight  # 20-25 kcal/kg for intubated patients
             energy_high = 25 * weight
-            st.write(f"**Energy Needs (Intubated):** 20-25 kcal/kg")
-            st.write(f"Total energy requirement range: {energy:.0f} - {energy_high:.0f} kcal/day")
+            st.write(f"- Energy: Indirect calorimetry (gold standard)
+            - The Penn State Equation (PSU) 2003b calculates resting energy expenditure and is supported by Academy of Nutrition and Dietetics (may be calculated using the ADA Nutrition Care Manual) nonobese patients
+Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select ARF from drop down to calculate Penn State for intubated pts
+            - Use clinical judgment: 20-25 kcal/kg (intubated): {energy:.0f} - {energy_high:.0f} kcal/day")
         else:
             energy = 25 * weight  # 25-35 kcal/kg for non-intubated patients
             energy_high = 35 * weight
-            st.write(f"**Energy Needs (Non-Intubated):** 25-35 kcal/kg")
-            st.write(f"Total energy requirement range: {energy:.0f} - {energy_high:.0f} kcal/day")
+            st.write(f"**Energy Needs (Non-Intubated):**
+            - {energy:.0f} - {energy_high:.0f} kcal/day (25 35 kcal/kg)")
 
     # Protein needs for Trauma
+    protein_low = 1.5 * weight
+    protein_high = 2 * weight
     st.write("**Protein Requirements for Trauma:**")
-    st.write("""
-    - **1.5-2.0 g/kg** of body weight.
-    """)
+    st.write(f" - {protein_low} - {protein_high} g/d (1.5 - 2.0 g/kg)")
     
     # Vitamin supplementation
     st.write("**Vitamin Supplementation for Trauma Recovery:**")
@@ -506,9 +511,9 @@ elif selected_disease == "Trauma":
 
     # TBI (Traumatic Brain Injury) consideration
     st.write("**Traumatic Brain Injury (TBI) Considerations:**")
-    st.write("""
-    - Energy needs: **120-160%** of basal energy needs
-    - Protein needs: **1.5-2.0 g/kg** of body weight
+    st.write(f"""
+    - Energy needs: 120-160% of basal energy needs
+    - Protein needs: {protein_low} - {protein_high} g/d (1.5-2.0 g/kg)
     """)
     
     # Tube feeding phase
