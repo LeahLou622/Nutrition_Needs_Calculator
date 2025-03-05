@@ -598,6 +598,19 @@ elif selected_disease == "Wound healing":
         - Encourage consumption of a balanced diet that includes good sources of vitamins and minerals.
         """)
 
+def calculate_fluid_needs(weight):
+    """
+    Calculate fluid needs using the Holiday-Segar Method.
+    """
+    if weight <= 10:
+        fluid_needs = weight * 100  # 100ml/kg up to 10 kg
+    elif weight <= 20:
+        fluid_needs = 1000 + (weight - 10) * 50  # 1000ml + 50ml/kg for >10kg
+    else:
+        fluid_needs = 1500 + (weight - 20) * 20  # 1500ml + 20ml/kg for >20kg
+
+    return fluid_needs
+
 #General Fluid Needs
 st.title("General Fluid Requirements (AND)")
 
@@ -611,6 +624,9 @@ elif age > 65:
     st.write(f""" 
     - Adults > 65 years: {25 * weight} ml (25 ml/kg) """) 
 else:
+    fluid_needs = calculate_fluid_needs(weight)
+    st.success(f"⚕️ Estimated Fluid Needs: **{fluid_needs:.0f} ml/day**")
+    
     st.write(f"""
     **Holiday-Segar Method (commonly used for peds):**
     
