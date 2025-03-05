@@ -2,6 +2,10 @@ import streamlit as st
 
 # Streamlit UI
 st.title("Estimated Nutrition Needs Calculator")
+st.write(f"""
+
+***This page was created by Leah Newmark, RD, CNSC and Machine Learning Engineer***""")
+
 
 def calculate_bmi(weight, height):
     if height == 0:
