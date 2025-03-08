@@ -198,7 +198,7 @@ elif selected_disease == "Cancer":
 
     st.write(f"""
     **Protein Needs:**  
-    - {protein_low:.1f} to {protein_high:.1f} g/day for non-stressed patient with cancer (1 g/kg) 
+    - {protein_low:.1f} to {protein_high:.1f} g/day for non-stressed patient with cancer (1 - 1.2 g/kg) 
     - {protein_treatment_low:.1f} to {protein_treatment_high:.1f} g/day for patients undergoing treatment (1.2 - 1.5 g/kg) 
     - {protein_transplant_low:.1f} to {protein_transplant_high:.1f} g/day for stem cell transplant (1.5 - 2.0 g/kg)  
     - {protein_increased_low:.1f} to {protein_increased_high:.1f} g/day for increased protein needs such as protein-losing enteropathies or wasting (1.5 - 2.5 g/kg) 
