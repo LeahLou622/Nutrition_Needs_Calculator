@@ -405,8 +405,7 @@ elif selected_disease == "Obese (non critical care)":
     # Protein Needs
     st.write(f"""
     **Protein Needs:**  
-    - Individualized to provide 15% to 35% of energy as protein.  
-    - Estimated protein intake: {protein_min:.1f} to {protein_max:.1f} grams/day  
+    - Estimated protein intake: {protein_min:.1f} to {protein_max:.1f} grams/day (Individualized to provide 15% to 35% of energy as protein.)  
     - Minimum of 65-70 grams protein/day
     """)
 
