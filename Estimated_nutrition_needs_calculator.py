@@ -503,7 +503,7 @@ Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select 'ARDS (Acute
     protein_low = 1.5 * weight
     protein_high = 2 * weight
     st.write("**Protein Requirements for Trauma:**")
-    st.write(f" - {protein_low} - {protein_high} g/d (1.5 - 2.0 g/kg)")
+    st.write(f" - {protein_low:.0f} - {protein_high:.0f} g/d (1.5 - 2.0 g/kg)")
     
     # Vitamin supplementation
     st.write("**Vitamin Supplementation for Trauma Recovery:**")
