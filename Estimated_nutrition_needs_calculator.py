@@ -517,7 +517,7 @@ Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select 'ARDS (Acute
     st.write("**Traumatic Brain Injury (TBI) Considerations:**")
     st.write(f"""
     - Energy needs: 120-160% of basal energy needs
-    - Protein needs: {protein_low} - {protein_high} g/d (1.5-2.0 g/kg)
+    - Protein needs: {protein_low:.0f} - {protein_high:.0f} g/d (1.5-2.0 g/kg)
     """)
     
     # Tube feeding phase
