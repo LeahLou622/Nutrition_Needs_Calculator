@@ -491,7 +491,7 @@ elif selected_disease == "Trauma":
             energy_high = 25 * weight
             st.write(f"""- Energy: Indirect calorimetry (gold standard)
             - The Penn State Equation (PSU) 2003b calculates resting energy expenditure and is supported by Academy of Nutrition and Dietetics (may be calculated using the ADA Nutrition Care Manual) nonobese patients
-Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select ARF from drop down to calculate Penn State for intubated pts
+Mifflin-St Jeor (ASPEN and AND) Obese and nonobese patients. Select 'ARDS (Acute Lung Injury)/ Ventilated' from drop down to calculate Penn State for intubated pts
             - Use clinical judgment: 20-25 kcal/kg (intubated): {energy:.0f} - {energy_high:.0f} kcal/day""")
         else:
             energy = 25 * weight  # 25-35 kcal/kg for non-intubated patients
